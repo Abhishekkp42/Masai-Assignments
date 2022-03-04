@@ -1,10 +1,27 @@
-function add(a,b){
-	return (a+b)
-}
+import "./index.css";
+import logo from "./logo.jpg";
 
-function mult(a,b){
-	return (a*b)
-}
+const img= new Image;
+img.src= logo;
+img.setAttribute("id","logo");
 
-console.log(add(1,5))
-console.log(mult(6,4))
+const div=document.createElement("div");
+div.setAttribute("id","cont");
+
+const inp= document.createElement("input");
+inp.placeholder="Type the task here...";
+inp.style.border="1px solid grey";
+
+const task_div=document.createElement("div");
+task_div.setAttribute("id","task_div");
+const btn=document.createElement("button");
+btn.innerText="Submit";
+btn.setAttribute("id","btn");
+btn.addEventListener("click", ()=>{
+    task_div.innerHTML=inp.value;
+    inp.value="";
+});
+
+div.append(inp,btn,task_div);
+
+document.getElementById("root").append(img,div);
